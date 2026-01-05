@@ -4,7 +4,7 @@ metadata:
   name: about-service
 spec:
   selector:
-    app: about # Change this to match the label in your about-deployment
+    app: techsolutions # Change this to match the label in your about-deployment
   ports:
     - protocol: TCP
       port: 80
@@ -16,7 +16,7 @@ metadata:
   name: contact-service
 spec:
   selector:
-    app: contact
+    app: techsolutions
   ports:
     - protocol: TCP
       port: 80
@@ -28,7 +28,7 @@ metadata:
   name: services-service
 spec:
   selector:
-    app: services
+    app: techsolutions
   ports:
     - protocol: TCP
       port: 80
