@@ -4,10 +4,17 @@ metadata:
   name: kastro-ingress
   namespace: default
   annotations:
-    kubernetes.io/ingress.class: alb
+    # Tells AWS to make the Load Balancer accessible over the internet
     alb.ingress.kubernetes.io/scheme: internet-facing
+    
+    # Directs traffic to Pod IPs (best for EKS)
     alb.ingress.kubernetes.io/target-type: ip
+    
+    # Optional: Groups multiple ingresses under one ALB to save costs
+    alb.ingress.kubernetes.io/group.name: kastro-group
 spec:
+  # This matches the AWS Load Balancer Controller you just installed
+  ingressClassName: alb
   rules:
   - http:
       paths:
@@ -30,5 +37,12 @@ spec:
         backend:
           service:
             name: services-service
+            port:
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: techsolutions-service # Your main default service
             port:
               number: 80
