@@ -4,7 +4,7 @@ metadata:
   name: kastro-ingress
   namespace: default
   annotations:
-    # Tells AWS to make the Load Balancer accessible over the internet
+   
     alb.ingress.kubernetes.io/scheme: internet-facing
     
     # Directs traffic to Pod IPs (best for EKS)
