@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: about-service
+  namespace: default
 spec:
   selector:
     app: techsolutions # Change this to match the label in your about-deployment
